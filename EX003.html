@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo JavaScript</title>
+    <style>
+        body{
+            background-image: linear-gradient(to bottom, darkblue, blue, lightblue  );
+            background-repeat: no-repeat;
+            block-size: 98%vh;
+            background-attachment: fixed;
+            color: azure;
+            font: normal 18pt arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ola mundo!!</h1> <!--Isto é um comentario html-->
+    <p>Adeus maldição</p>
+    <script>
+     var n1 = Number(window.prompt(' digite um niumero')) // esse comando é um "string"
+     var n2 = Number(window.prompt('digite outro numero')) // esse comando é um "string"
+     var s = n1 + n2 // esse resultado é u "string" precisa ser convertido para "Number"
+
+     //window.alert ('A soma dos valores é ' + s)
+      //Resposta com "concatenização"
+
+      window.alert(`A soma entre ${n1} e ${n2} e igual e ${s}`) // Usado templat strings quando eu quiser interpolar a plays roder
+    </script>
+</body>
+</html>
