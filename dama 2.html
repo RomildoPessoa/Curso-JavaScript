@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Damas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: top;
+            margin-bottom: 20px;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            width: 80vmin; /* Tamanho responsivo */
+            height: 80vmin; /* Tamanho responsivo */
+            gap: 0;
+            border: 2px solid #333; /* Borda para o tabuleiro */
+        }
+
+        .cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dark {
+            background-color: #8B4513; /* Tom de marrom mais escuro */
+        }
+
+        .light {
+            background-color: #F5F5DC; /* Tom de bege mais claro */
+        }
+
+        .piece {
+            width: 80%; /* Proporção da peça em relação à célula */
+            height: 80%; /* Proporção da peça em relação à célula */
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra para as peças */
+            transition: transform 0.2s; /* Animação ao mover */
+        }
+
+        .piece.red {
+            background-color: red;
+        }
+
+        .piece.black {
+            background-color: black;
+        }
+
+        .cell.selected {
+            border: 2px solid yellow;
+            transform: scale(1.1); /* Aumentar a célula selecionada */
+            z-index: 1; /* Colocar em cima de outras células */
+        }
+
+        @media (max-width: 600px) {
+            #board {
+                width: 90vmin; /* Ajuste para telas menores */
+                height: 90vmin;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <div id="board"></div>
+    <script>
+        const boardElement = document.getElementById('board');
+        const boardSize = 8;
+        let selectedCell = null;
+        let currentPlayer = 'red';
+
+        // Função para criar o tabuleiro
+        function createBoard() {
+            for (let row = 0; row < boardSize; row++) {
+                for (let col = 0; col < boardSize; col++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('cell');
+                    if ((row + col) % 2 === 0) {
+                        cell.classList.add('light');
+                    } else {
+                        cell.classList.add('dark');
+                        // Adiciona peças nas três primeiras e últimas linhas
+                        if (row < 3) {
+                            createPiece(cell, 'red');
+                        } else if (row >= 5) {
+                            createPiece(cell, 'black');
+                        }
+                    }
+                    cell.dataset.row = row;
+                    cell.dataset.col = col;
+                    cell.addEventListener('click', () => onCellClick(cell));
+                    boardElement.appendChild(cell);
+                }
+            }
+        }
+
+        // Função para criar uma peça
+        function createPiece(cell, color) {
+            const piece = document.createElement('div');
+            piece.classList.add('piece', color);
+            cell.appendChild(piece);
+        }
+
+        // Função para lidar com o clique na célula
+        function onCellClick(cell) {
+            if (selectedCell && selectedCell !== cell) {
+                movePiece(selectedCell, cell);
+                selectedCell.classList.remove('selected');
+                selectedCell = null;
+            } else if (cell.firstChild && cell.firstChild.classList.contains(currentPlayer)) {
+                if (selectedCell) {
+                    selectedCell.classList.remove('selected');
+                }
+                selectedCell = cell;
+                selectedCell.classList.add('selected');
+            }
+        }
+
+        // Função para mover a peça
+        function movePiece(fromCell, toCell) {
+            if (!toCell.firstChild && toCell.classList.contains('dark')) {
+                toCell.appendChild(fromCell.firstChild);
+                currentPlayer = currentPlayer === 'red' ? 'black' : 'red';
+            }
+        }
+
+        // Inicializa o tabuleiro
+        createBoard();
+    </script>
+</body>
+</html>

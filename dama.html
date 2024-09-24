@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Damas</title>
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 0;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+}
+
+.dark {
+    background-color: brown;
+}
+
+.light {
+    background-color: beige;
+}
+
+.piece {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px auto;
+}
+
+.piece.red {
+    background-color: red;
+}
+
+.piece.black {
+    background-color: black;
+}
+
+.cell.selected {
+    border: 2px solid yellow;
+}</style>
+</head>
+<body>
+    <h1>Jogo de Damas</h1>
+    <div id="board"></div>
+    <script >
+    const boardElement = document.getElementById('board');
+const boardSize = 8;
+let selectedCell = null;
+let currentPlayer = 'red';
+
+// Função para criar o tabuleiro
+function createBoard() {
+    for (let row = 0; row < boardSize; row++) {
+        for (let col = 0; col < boardSize; col++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            if ((row + col) % 2 === 0) {
+                cell.classList.add('light');
+            } else {
+                cell.classList.add('dark');
+                // Adiciona peças nas três primeiras e últimas linhas
+                if (row < 3) {
+                    createPiece(cell, 'red');
+                } else if (row >= 5) {
+                    createPiece(cell, 'black');
+                }
+            }
+            cell.dataset.row = row;
+            cell.dataset.col = col;
+            cell.addEventListener('click', () => onCellClick(cell));
+            boardElement.appendChild(cell);
+        }
+    }
+}
+
+// Função para criar uma peça
+function createPiece(cell, color) {
+    const piece = document.createElement('div');
+    piece.classList.add('piece', color);
+    cell.appendChild(piece);
+}
+
+// Função para lidar com o clique na célula
+function onCellClick(cell) {
+    if (selectedCell && selectedCell !== cell) {
+        movePiece(selectedCell, cell);
+        selectedCell.classList.remove('selected');
+        selectedCell = null;
+    } else if (cell.firstChild && cell.firstChild.classList.contains(currentPlayer)) {
+        if (selectedCell) {
+            selectedCell.classList.remove('selected');
+        }
+        selectedCell = cell;
+        selectedCell.classList.add('selected');
+    }
+}
+
+// Função para mover a peça
+function movePiece(fromCell, toCell) {
+    if (!toCell.firstChild && toCell.classList.contains('dark')) {
+        toCell.appendChild(fromCell.firstChild);
+        currentPlayer = currentPlayer === 'red' ? 'black' : 'red';
+    }
+}
+
+// Inicializa o tabuleiro
+createBoard();</script>
+</body>
+</html> 
