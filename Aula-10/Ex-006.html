@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        div#trab{
+            font: normal 14pt arial;
+            background-color: aquamarine;
+            color: #1f241a;
+            width: 250px;
+            height: 250px;
+            line-height: 250px;
+            text-align: center;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="trab" >
+       trab
+    </div>
+    <script>
+        var t = window.document.getElementById('trab')
+
+        t.addEventListener('click' , clicar)
+        t.addEventListener('mouseenter', passar)
+        t.addEventListener('mouseout' , sair )
+        function clicar() {
+            
+            t.innerText = 'clicar'
+            t.style.background = 'blue'
+        }
+        function passar() {
+            
+            t.innerText = 'passar'
+        }
+        function sair() {
+        
+            t.innerText = 'sair'
+        }
+        /*function mover(){
+         t.innerText = 'mover'
+        }*/
+    </script>
+</body>
+</html>
