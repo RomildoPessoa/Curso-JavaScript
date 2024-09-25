@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,22 @@
     <p>Aperndendo a usar o  <strong>DOM</strong></p>
     <div>Click em mim</div>
      <script>
-       window.document.write(window.document.URL)
+        var corpo = window.document.body
+        var p1 = window.document.getElementsByTagName('p')[1]
+        
+        
+
+        corpo.style.background = 'darkblue'
+        corpo.style.color = 'white'
+        corpo.style. border = '3px solid black'
+        
+        p1.style.background = 'red'
+        
+        p1. style.fontSize = '1.2em'
+
+        window.document.write('Esta dessa forma: ' + p1.innerHTML)
+        window.alert(p1.innerHTML)
+        
      </script>
 </body>
 </html>
