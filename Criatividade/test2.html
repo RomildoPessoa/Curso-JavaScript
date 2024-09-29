@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nascionlidade</title>
+    <style>
+        body{
+            font: normal 14pt solid;
+        }
+        input{
+            margin: 10px;
+        }
+
+        
+    </style>
+</head>
+<body>
+     <h1>Pais de origem</h1>
+     <p>wellcame</p>
+     <input type="text" id="txtp1" placeholder="Digite sua nascionalidade">
+     <input type="button" value="Verificar" onclick="checar()">
+     <div id="resp">resposta</div>
+     <script>
+        function checar(){
+        var tp1 =window.document.getElementById
+        ('txtp1')
+
+        var n1 = window.document.getElementById('resp')
+
+
+        n1.innerHTML = `Vocé de nascionalidade ${n1} bem vindo`
+
+        if (n1 == Brasil){
+        resp.innerHTML = `Você não é estrangeiro`}
+
+        else {
+            ` você é estrangeiro`
+        }
+
+
+        }
+     </script>
+</body>
+</html>

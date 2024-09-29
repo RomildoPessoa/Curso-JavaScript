@@ -22,18 +22,20 @@
 <body>
     <h1> Fiscalização de multas </h1>
     Velocidade do carro<input type="number" name="txtvel" id="txtvel"> Km/h
-    <input type="button" value="Verificar" onclick="calcular()">
+    <input type="button" value="Verificar" onclick="resultado()">
     <div id="resp"> Resultado</div>
   
     
     <script>
-     function calcular(){
+     function resultado(){
         var tn1 =   
         window.document.getElementById('txtvel')
-        var resp = window.document.getElementById('resp')
-        var n1 = Number(tn1.value)
-        resp.innerHTML = `<p>Sua velocidade atual é de <strong>${n1}km/h</strong></p>`
         
+        var resp = window.document.getElementById('resp')
+        
+        var n1 = Number(tn1.value)
+       
+        resp.innerHTML = `<p>Sua velocidade atual é de <strong>${n1}km/h</strong></p>`
         if (n1 > 60){
         resp.innerHTML += `<p> Você esta <strong> MULTADO</strong> por ecesso de velocidade.`
         }

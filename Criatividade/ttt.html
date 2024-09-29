@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Nacionalidade</title>
+</head>
+<body>
+    <h1>Verificação de Nacionalidade</h1>
+    <input type="text" id="nacionalidade" placeholder="Digite sua nacionalidade">
+    <button onclick="verificarNacionalidade()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+
+function verificarNacionalidade() {
+    var nacionalidade = document.getElementById('nacionalidade').value.toLowerCase();
+    var resultado = document.getElementById('resultado');
+
+    if (nacionalidade === 'brasileira') {
+        resultado.innerHTML = "Você é brasileiro!";
+    } else if (nacionalidade === 'portuguesa') {
+        resultado.innerHTML = "Você é português!";
+    } else {
+        resultado.innerHTML = "Nacionalidade não reconhecida.";
+    }
+}
+</script> 
+</body>
+</html>

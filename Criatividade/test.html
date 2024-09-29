@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font: normal 16pt solid;
+        }
+    </style>
+</head>
+<body>
+    <h1> Rstreio de velocidade</h1>
+    <p> Dirija com atenção</p>
+    <input type="number" name="txn1" id="txn1">
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res">Resultado</div>
+
+    <script>
+        function calcular(){
+        var tn1 = window.document.getElementById('txn1')
+        
+        var res = window.document.getElementById('res')
+        
+        var n1 = Number(tn1.value)
+       
+        res.innerHTML =`<p>Sua velocidade é de <strong>${n1}</strong> Km/h</p>`
+        
+        if (n1 > 60){
+            res.innerHTML += ` Você foi mutado dirija com prudencia`
+        }
+        }
+    </script>
+</body>
+</html>
