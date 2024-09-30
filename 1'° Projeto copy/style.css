@@ -13,6 +13,9 @@ section{
     width: 500px;
     margin: auto;
 }
+div{
+    margin-top: 50px;
+}
 footer{
     color: white;
     text-align: center;
