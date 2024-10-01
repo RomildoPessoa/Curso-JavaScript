@@ -16,6 +16,10 @@ section{
 div{
     margin-top: 50px;
 }
+img{
+    margin: auto;
+}
+
 footer{
     color: white;
     text-align: center;
