@@ -14,7 +14,9 @@ section{
     margin: auto;
 }
 div{
-    margin-top: 50px;
+    text-align: center;
+    padding: 9px;
+    font: bold;
 }
 img{
     margin: auto;
