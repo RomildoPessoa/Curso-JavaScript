@@ -16,6 +16,11 @@ section{
 div{
     margin-top: 50px;
 }
+input{
+    font: normal 14px arial;
+    border-radius: 10px;
+
+}
 footer{
     color: white;
     text-align: center;
