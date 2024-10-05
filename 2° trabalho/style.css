@@ -1,6 +1,6 @@
 body{
     background: lightblue ;
-    font: normal 14pt arial;
+    font: normal 16pt arial;
 }
 header{
     color: white;
@@ -12,17 +12,15 @@ section{
     padding: 15px;
     width: 500px;
     margin: auto;
+    box-shadow: 3px 3px 10px black;
 }
-div{
-    margin-top: 50px;
-}
-input{
-    font: normal 14px arial;
-    border-radius: 10px;
 
-}
+
+
+
 footer{
     color: white;
     text-align: center;
+    font-style: italic;
 }
 
