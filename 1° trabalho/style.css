@@ -1,5 +1,9 @@
 body{
-    background: lightblue ;
+    background-image:url(imagem-fundo.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     font: normal 14pt arial;
 }
 header{
@@ -26,4 +30,5 @@ footer{
     color: white;
     text-align: center;
 }
+
 
