@@ -10,9 +10,9 @@ section{
     background: white;
     border-radius: 10px;
     padding: 15px;
-    width: 500px;
+    width: 600px;
     margin: auto;
-    box-shadow: 3px 3px 10px black;
+    box-shadow: 3px 3px 10px #00000063;
 }
 
 
