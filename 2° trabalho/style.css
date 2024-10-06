@@ -1,7 +1,16 @@
 body{
-    background: lightblue ;
+    background-image:url(foto-criança-mulher.png);
+    background-position: center;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-attachment: fixed;
     font: normal 16pt arial;
+    padding: 20px;
 }
+#res{
+    text-align: center;
+}
+
 header{
     color: white;
     text-align: center;
@@ -10,11 +19,17 @@ section{
     background: white;
     border-radius: 10px;
     padding: 15px;
-    width: 600px;
+    max-width: 600px;
     margin: auto;
     box-shadow: 3px 3px 10px #00000063;
 }
-
+input{
+    border-radius: 3px;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
 
 
 
